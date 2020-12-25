@@ -1,9 +1,13 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+//React Redux loading bar
+import LoadingBar from 'react-redux-loading'
 //Action Creators
 import {
   handleInitialData
 } from '../actions/shared'
+//UI components
+import Dashboard from './Dashboard'
 
 
 class App extends Component {
@@ -13,15 +17,19 @@ class App extends Component {
   render () {
     return (
       <div>
-        Hello! Welcome to Would you Rather App
+        <LoadingBar/>
+        {this.props.loading === true
+          ? null
+          : <Dashboard/>
+        }
       </div>
     );
   }
 }
 
-const mapStateToProps = ({authedUser}) => {
+const mapStateToProps = ({ authedUser }) => {
   return {
-    authedUser,
+    loading: authedUser === null
   }
 }
 
