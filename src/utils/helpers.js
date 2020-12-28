@@ -1,7 +1,6 @@
 export const formatQuestion = (question,author,authedUser) => {
   const { id, optionOne, optionTwo, timestamp} = question
   const { name, avatarURL } = author
-  const hasAnswered = author.answers[id]!==null
 
   return {
     name,//Author Name

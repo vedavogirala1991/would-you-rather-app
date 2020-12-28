@@ -15,18 +15,29 @@ class Question extends Component {
     } = question
 
     return (
-      <div>
-      <span>{name} asks:</span>
+      <table className='question-table' align='center'>
+      <thead><tr className='author-name' colSpan={2} >
+      <td>
+        <span>{name} asks:</span></td>
+        </tr>
+      </thead>
+      <tbody>
+      <tr>
+      <td width='30%' align='right'>
       <img
         src={avatar}
         alt={`Avatar of ${name}`}
         className='avatar'
       />
-      <div>
+      </td>
+      <td className='question-peek'>
         <span>Would you rather</span>
         <p>..{optionOne.text.length>15 ? optionOne.text.substring(0,15) : optionOne.text}..</p>
-      </div>
-      </div>
+        <button className='question-viewpoll'>View Poll</button>
+      </td>
+      </tr>
+      </tbody>
+      </table>
     )
   }
 }
