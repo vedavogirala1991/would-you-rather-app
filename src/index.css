@@ -5,6 +5,7 @@
 }
 
 .center {
+  display: inline;
   text-align: center;
 }
 .author-name {
@@ -13,7 +14,7 @@
   padding-top: 10px;
   padding-bottom: 5px;
   margin-left : 20px;
-  border: 1px;
+  border: 1px solid #ccc;
 }
 
 ul {
@@ -29,22 +30,40 @@ li {
 .avatar {
   height: 50px;
   border-radius: 25px;
-  margin: 10px;
+  margin-left: 30px;
+  margin-bottom: 20px;
+}
+
+.question-table {
+  border: 1px solid #ccc;
+}
+
+.question-table thead tr td{
+  margin-bottom: 2px;
+  border-bottom: 1px solid #ccc;
 }
 
 .question-content {
   text-align: center;
+  border: 1px solid #ccc;
+
 }
 
 .question-peek {
-  padding-left: 20px;
-  width: 70%;
+  padding-left: 10px;
+  border-left: 1px solid #ccc;
+  width: 60%;
   text-align: left;
   vertical-align: middle;
 }
 
 .question-viewpoll {
   margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.dashboard-content {
+  width: 65%;
 }
 
 /* Style the tab */

@@ -16,23 +16,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 )
-
-// <div id="Unanswered Questions" className="tabcontent active">
-//   <ul>
-//       {this.props.unAnsweredQuestionIds.map((id) =>(
-//         <li key={id}>
-//           <Question id={id}/>
-//         </li>
-//       ))}
-//   </ul>
-// </div>
-//
-// <div id="Answered Questions" className="tabcontent">
-//   <ul>
-//       {this.props.answeredQuestionIds.map((id) =>(
-//         <li key={id}>
-//           <Question id={id}/>
-//         </li>
-//       ))}
-//   </ul>
-// </div>

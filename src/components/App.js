@@ -8,6 +8,7 @@ import {
 } from '../actions/shared'
 //UI components
 import Dashboard from './Dashboard'
+import QuestionPage from './QuestionPage'
 
 
 class App extends Component {
@@ -16,11 +17,11 @@ class App extends Component {
   }
   render () {
     return (
-      <div>
+      <div className='center'>
         <LoadingBar/>
         {this.props.loading === true
           ? null
-          : <Dashboard/>
+          : <QuestionPage id={'8xf0y6ziyjabvozdd253nd'}/>
         }
       </div>
     );
