@@ -4,23 +4,28 @@ import Question from './Question'
 
 class QuestionsTab extends Component {
   render () {
-    console.log('Questions : ',this.props.questionIds)
-    const {questionIds} = this.props
-    questionIds.map((item) =>(console.log(item)))
+    const {id,className,questionIds} = this.props
     return (
-      <ul>
-          {questionIds.map((id) =>(
-            <li key={id}>
-              <Question id={id}/>
-            </li>
-          ))}
-      </ul>
+      <div id={id} className={className}>
+        <ul>
+            {questionIds.map((id) =>(
+              <li key={id}>
+                <Question id={id}/>
+              </li>
+            ))}
+        </ul>
+      </div>
     )
   }
 }
 
-const mapStateToProps = ({}, questionIds) => {
+const mapStateToProps = ({questions}, {questionIds,id,className}) => {
   return {
-    questionIds,
+    id,
+    className,
+    questionIds : Object.keys(questions)
+      .sort((a,b) => questions[b].timestamp - questions[a].timestamp).filter(id => questionIds.includes(id))
   }
 }
+
+export default connect(mapStateToProps)(QuestionsTab)

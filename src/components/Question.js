@@ -5,7 +5,7 @@ import {formatQuestion} from '../utils/helpers'
 class Question extends Component {
   render() {
     const question = this.props.question
-    console.log('Question : ',question)
+
     if(question === null){
       return <p> This Question doesn't exists </p>
     }
