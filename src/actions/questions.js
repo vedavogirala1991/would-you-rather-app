@@ -22,8 +22,13 @@ export const saveAnswer = ({authedUser,id,answer},questions) => {
 
 export const handleSaveAnswer = (info) => {
   return (dispatch,getState) => {
+    const {authedUser,id,answer} = info
     const {questions} = getState
-    return saveQuestionAnswer(info)
+    return saveQuestionAnswer({
+      authedUser,
+      qid : id,
+      answer,
+    })
     .then(dispatch(saveAnswer(info,questions)))
   }
 }
