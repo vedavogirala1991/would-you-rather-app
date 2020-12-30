@@ -1,6 +1,6 @@
-export const formatQuestion = (question,author,authedUser) => {
+export const formatQuestion = (question,users,authedUser) => {
   const { id, optionOne, optionTwo, timestamp} = question
-  const { name, avatarURL } = author
+  const { name, avatarURL } = users[question.author]
 
   return {
     name,//Author Name
@@ -9,7 +9,7 @@ export const formatQuestion = (question,author,authedUser) => {
     optionOne,//Option One
     optionTwo,//Option Two
     avatar: avatarURL,//Author profile image
-    hasAnswered: author.answers[id] ? true : false,//If the Author answered
-    answeredOption : author.answers[id]//Answered option
+    hasAnswered: users[authedUser].answers[id] ? true : false,//If the Author answered
+    answeredOption : users[authedUser].answers[id]//Answered option
   }
 }

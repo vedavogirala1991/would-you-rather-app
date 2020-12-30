@@ -2,10 +2,13 @@ import React,{Component} from 'react'
 import {connect} from 'react-redux'
 import {formatQuestion} from '../utils/helpers'
 import {handleSaveAnswer} from '../actions/questions'
+import Poll from './Poll'
+import Results from './Results'
 
 class QuestionPage extends Component {
   state = {
     answer : '',
+    hasAnswered : this.props.question.hasAnswered,
   }
   handleChange = (e) => {
     const answer = e.target.value
@@ -16,22 +19,32 @@ class QuestionPage extends Component {
   }
   handleSaveAnswer = (e) => {
     e.preventDefault()
-    console.log('Inside handle save answer')
+
     const {dispatch,id,authedUser} = this.props
     const {answer} = this.state
     dispatch(handleSaveAnswer({authedUser,id,answer}))
+    this.setState(()=>({
+      answer,
+      hasAnswered : true
+    }))
   }
+
   render () {
-    console.log('props : ',this.props)
-    const { name, avatar, optionOne, optionTwo, id} = this.props.question
-    const {answer} = this.state
+    const { name, avatar, optionOne, optionTwo, answeredOption, id} = this.props.question
+    const answer = answeredOption ? answeredOption : this.state.answer
+
+    console.log('Answer Render : ',answer)
+
     return (
       <form onSubmit={this.handleSaveAnswer}>
         <table className='question-table' align='center'>
           <thead className='author-name'>
             <tr>
               <td colSpan={2}>
-                <span>{name} asks:</span>
+                {this.state.hasAnswered ===true
+                  ? <span>Asked by {name}</span>
+                  : <span>{name} asks:</span>
+                }
               </td>
             </tr>
           </thead>
@@ -45,17 +58,17 @@ class QuestionPage extends Component {
                 />
               </td>
               <td className='question-peek'>
-                <span>Would you rather</span>
-                <div onChange={this.handleChange}>
-                  <input type="radio" value={'optionOne'} name='options'/> {optionOne.text}
-                  <input type="radio" value={'optionTwo'} name='options'/> {optionTwo.text}
-                </div>
-                <button
-                  className='btn'
-                  type='submit'
-                  disabled={answer===''}>
-                  Submit
-                </button>
+                {this.state.hasAnswered === true
+                  ? <Results
+                      answer={answer}
+                      optionOne={optionOne}
+                      optionTwo={optionTwo}/>
+                  : <Poll
+                      answer={answer}
+                      handleChange={this.handleChange}
+                      optionOne={optionOne}
+                      optionTwo={optionTwo}/>
+                  }
               </td>
             </tr>
           </tbody>
@@ -70,7 +83,7 @@ const mapStateToProps = ({authedUser,questions,users},props) => {
   const question = questions[id]
   return {
     authedUser,
-    question : formatQuestion(question,users[question.author],authedUser),
+    question : formatQuestion(question,users,authedUser),
     id,
   }
 }
