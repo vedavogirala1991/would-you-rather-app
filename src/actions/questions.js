@@ -2,6 +2,7 @@ import {saveQuestionAnswer} from '../utils/api'
 //Questions Actions
 export const RECIEVE_QUESTIONS = 'RECIEVE_QUESTIONS'
 export const SAVE_ANSWER = 'SAVE_ANSWER'
+export const SAVE_QUESTION = 'SAVE_QUESTION'
 
 export const recieveQuestions = (questions) => {
   return {

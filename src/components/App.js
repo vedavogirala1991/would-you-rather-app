@@ -9,6 +9,7 @@ import {
 //UI components
 import Dashboard from './Dashboard'
 import QuestionPage from './QuestionPage'
+import NewQuestion from './NewQuestion'
 //import QuestionResults from './QuestionResults'
 
 
@@ -22,7 +23,8 @@ class App extends Component {
         <LoadingBar/>
         {this.props.loading === true
           ? null
-          : <QuestionPage match={{params : {id : '8xf0y6ziyjabvozdd253nd'}}}/>
+          : <NewQuestion />
+            //<QuestionPage match={{params : {id : '8xf0y6ziyjabvozdd253nd'}}}/>
             //<QuestionResults match={{params : {id : 'xj352vofupe1dqz9emx13r'}}}/>
         }
       </div>
