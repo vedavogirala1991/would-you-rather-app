@@ -1,4 +1,7 @@
-import {RECIEVE_QUESTIONS,SAVE_ANSWER} from '../actions/questions'
+import {
+  RECIEVE_QUESTIONS,
+  SAVE_QUESTION_ANSWER,
+  SAVE_QUESTION} from '../actions/questions'
 
 //Questions Reducer
 const questions = (state = {}, action) => {
@@ -8,7 +11,7 @@ const questions = (state = {}, action) => {
         ...state,
         ...action.questions,
       }
-    case SAVE_ANSWER:
+    case SAVE_QUESTION_ANSWER:
       return {
         ...state,
         ...action.questions,
@@ -19,7 +22,12 @@ const questions = (state = {}, action) => {
             votes : state[action.id][action.answer].votes.concat([action.authedUser])
           }
         }
-
+      }
+    case SAVE_QUESTION:
+      return {
+        ...state,
+        ...action.questions,
+        [action.question.id] : action.question
       }
     default:
       return state

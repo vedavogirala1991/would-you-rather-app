@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
+import {handleSaveQuestion} from '../actions/shared'
 
 class NewQuestion extends Component {
   state = {
@@ -8,6 +9,13 @@ class NewQuestion extends Component {
   }
   handleAddNewPoll = (e) => {
     e.preventDefault()
+    const {dispatch,authedUser} = this.props
+    const {optionOne,optionTwo} = this.state
+    dispatch(handleSaveQuestion({authedUser,optionOne,optionTwo}))
+    this.setState(()=>({
+      optionOne : '',
+      optionTwo : '',
+    }))
   }
   handleOptionOneChange = (e) => {
     const optionOne = e.target.value

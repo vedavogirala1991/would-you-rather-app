@@ -1,7 +1,6 @@
-import {saveQuestionAnswer} from '../utils/api'
 //Questions Actions
 export const RECIEVE_QUESTIONS = 'RECIEVE_QUESTIONS'
-export const SAVE_ANSWER = 'SAVE_ANSWER'
+export const SAVE_QUESTION_ANSWER = 'SAVE_QUESTION_ANSWER'
 export const SAVE_QUESTION = 'SAVE_QUESTION'
 
 export const recieveQuestions = (questions) => {
@@ -11,9 +10,9 @@ export const recieveQuestions = (questions) => {
   }
 }
 
-export const saveAnswer = ({authedUser,id,answer},questions) => {
+export const saveQuesAnswer = ({authedUser,id,answer},questions) => {
   return {
-    type : SAVE_ANSWER,
+    type : SAVE_QUESTION_ANSWER,
     authedUser,
     id,
     answer,
@@ -21,15 +20,10 @@ export const saveAnswer = ({authedUser,id,answer},questions) => {
   }
 }
 
-export const handleSaveAnswer = (info) => {
-  return (dispatch,getState) => {
-    const {authedUser,id,answer} = info
-    const {questions} = getState
-    return saveQuestionAnswer({
-      authedUser,
-      qid : id,
-      answer,
-    })
-    .then(dispatch(saveAnswer(info,questions)))
+export const saveQues = (question,questions) => {
+  return {
+    type : SAVE_QUESTION,
+    question,
+    questions,
   }
 }
