@@ -7,3 +7,9 @@ export const setAuthedUser = (id) => {
     id,
   }
 }
+
+export const handleSetAuthUser = (id) => {
+  return (dispatch) => {
+     dispatch(setAuthedUser(id))
+  }
+}

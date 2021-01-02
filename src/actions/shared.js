@@ -14,7 +14,7 @@ import {setAuthedUser} from './authedUser'
 import {showLoading,hideLoading} from 'react-redux-loading'
 
 //TODO Need to set auth user based on logon
-const AUTHED_ID = 'tylermcginnis'
+const AUTHED_ID = ''
 
 //Handles initial Data for App
 export const handleInitialData = () => {
@@ -34,7 +34,7 @@ export const handleSaveAnswer = (info) => {
   return (dispatch,getState) => {
     const {authedUser,id,answer} = info
     const {questions,users} = getState()
-    
+
     return saveQuestionAnswer({
       authedUser,
       qid : id,
