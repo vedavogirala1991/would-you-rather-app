@@ -34,8 +34,7 @@ export const handleSaveAnswer = (info) => {
   return (dispatch,getState) => {
     const {authedUser,id,answer} = info
     const {questions,users} = getState()
-    console.log('handleSaveAnswer questions : ',questions)
-    console.log('handleSaveAnswer users : ',users)
+    
     return saveQuestionAnswer({
       authedUser,
       qid : id,
@@ -52,15 +51,13 @@ export const handleSaveQuestion = (info) => {
   return (dispatch,getState) => {
     const {authedUser,optionOne,optionTwo} = info
     const {questions,users} = getState()
-    console.log('handleSaveAnswer questions : ',questions)
-    console.log('handleSaveAnswer users : ',users)
+
     return saveQuestion({
       author : authedUser,
-      optionOne,
-      optionTwo,
+      optionOneText : optionOne,
+      optionTwoText : optionTwo,
     })
     .then((question) => {
-        console.log('handleSaveQuestion : ',question)
         dispatch(saveQues(question,questions))
         dispatch(saveUserQuestion(question.id,authedUser,users))
       })

@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {formatQuestion} from '../utils/helpers'
+import {withRouter} from 'react-router-dom'
 
 class Question extends Component {
+  viewPoll = (e,id) => {
+    e.preventDefault()
+    this.props.history.push(`/question/${id}`)
+  }
+
   render() {
-    const question = this.props.question
+    const {question} = this.props
 
     if(question === null){
       return <p> This Question doesn't exists </p>
@@ -33,7 +39,7 @@ class Question extends Component {
             <td className='question-peek'>
               <span>Would you rather</span>
               <p>..{optionOne.text.length>15 ? optionOne.text.substring(0,15) : optionOne.text}..</p>
-              <button className='question-viewpoll'>View Poll</button>
+              <button onClick={(e)=>this.viewPoll(e,id)} className='btn'>View Poll</button>
             </td>
           </tr>
         </tbody>
@@ -43,14 +49,16 @@ class Question extends Component {
 }
 
 
-const mapStateToProps = ({authedUser, users, questions} , {id}) => {
+const mapStateToProps = ({authedUser, users, questions} , props) => {
+  const {id} = props
   const question = questions[id]
+
   return {
     authedUser,
-    question : question ?
-      formatQuestion(question,users[question.author],authedUser)
-        : null
+    question : question
+      ? formatQuestion(question,users,authedUser)
+      : null
   }
 }
 
-export default connect(mapStateToProps)(Question)
+export default withRouter(connect(mapStateToProps)(Question))

@@ -12,7 +12,7 @@ class QuestionPage extends Component {
   }
   handleChange = (e) => {
     const answer = e.target.value
-    console.log('A : ',answer)
+
     this.setState(()=>({
       answer,
     }))
@@ -30,10 +30,8 @@ class QuestionPage extends Component {
   }
 
   render () {
-    const { name, avatar, optionOne, optionTwo, answeredOption, id} = this.props.question
+    const { name, avatar, optionOne, optionTwo, answeredOption} = this.props.question
     const answer = answeredOption ? answeredOption : this.state.answer
-
-    console.log('Answer Render : ',answer)
 
     return (
       <form onSubmit={this.handleSaveAnswer}>
