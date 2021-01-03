@@ -5,10 +5,8 @@
 }
 
 .nav ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
   text-decoration: none;
+  display: inline-block;
 }
 
 .nav li:first-child {
@@ -200,4 +198,9 @@ li {
   width: 75px;
   padding-top: 20px;
   margin-left: 10px
+}
+
+.user-nav {
+  text-align: right;
+  margin-top: -50px;
 }

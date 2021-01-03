@@ -3,6 +3,10 @@ import {connect} from 'react-redux'
 import {handleSetAuthUser} from '../actions/authedUser'
 
 class Login extends Component {
+  componentDidMount = () => {
+    console.log('inside componentDidMount')
+    this.props.dispatch(handleSetAuthUser(''))
+  }
   state = {
     userId : ''
   }
