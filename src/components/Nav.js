@@ -4,16 +4,17 @@ import {connect} from 'react-redux'
 
 class Nav extends Component {
   render () {
+    const {username,avatar} = this.props
     return (
       <nav className='nav'>
-        <ul>
+        <ul className='nav-links'>
           <li>
             <NavLink to='/home' exact activeClassName='active'>
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink to='/new' exact activeClassName='active'>
+            <NavLink to='/add' exact activeClassName='active'>
               New Question
             </NavLink>
           </li>
@@ -27,7 +28,11 @@ class Nav extends Component {
           (<div className='user-nav'>
             <ul>
               <li>
-                <span>Hello, {this.props.username}</span>
+                <span>Hello, {username}</span>
+                <img
+                  src={avatar}
+                  alt={`Avatar of ${username}`}
+                  className='nav-avatar'/>
               </li>
               <li>
                 <NavLink to='/' exact activeClassName='active'>
@@ -46,6 +51,9 @@ const mapStateToProps = ({ users,authedUser }) => {
   return {
     username: authedUser
       ? users[authedUser].name
+      : null,
+    avatar : authedUser
+      ? users[authedUser].avatarURL
       : null,
   }
 }

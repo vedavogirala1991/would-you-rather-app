@@ -4,11 +4,12 @@ import Question from './Question'
 
 class QuestionsTab extends Component {
   render () {
-    const {id,className,questionIds} = this.props
+    const {questionIds,className} = this.props
     return (
-      <div id={id} className={className}>
+      <div className={className}>
         <ul>
-            {questionIds.map((id) =>(
+            {questionIds &&
+              questionIds.map((id) =>(
               <li key={id}>
                 <Question id={id}/>
               </li>
@@ -21,10 +22,10 @@ class QuestionsTab extends Component {
 
 const mapStateToProps = ({questions}, {questionIds,id,className}) => {
   return {
-    id,
+    questionIds : questionIds ? Object.keys(questions)
+      .sort((a,b) => questions[b].timestamp - questions[a].timestamp).filter((id) => questionIds.includes(id))
+      : null,
     className,
-    questionIds : Object.keys(questions)
-      .sort((a,b) => questions[b].timestamp - questions[a].timestamp).filter(id => questionIds.includes(id))
   }
 }
 

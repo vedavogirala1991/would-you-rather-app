@@ -1,46 +1,69 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
 import QuestionsTab from './QuestionsTab'
 
 
 class Dashboard extends Component {
+  state = {
+    activeTab : 'Unanswered Questions'
+  }
   showTab= (e, tabName) => {
     e.preventDefault()
-    let i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName('tabcontent')
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = 'none'
-    }
-    tablinks = document.getElementsByClassName('tablinks')
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(' active', '');
-    }
-    document.getElementById(tabName).style.display = 'block';
-    e.currentTarget.className += ' active';
+    this.setState(()=>({
+      activeTab : tabName,
+    }))
   }
   render() {
-    const {answeredQuestionIds,unAnsweredQuestionIds} = this.props
+    const {answeredQuestionIds,unAnsweredQuestionIds,authedUser} = this.props
+    const {activeTab} = this.state
+    console.log('Active Tab : ',activeTab)
+    console.log('Answered Questions',answeredQuestionIds)
+    console.log('Unanswered Questions',unAnsweredQuestionIds)
+    if(!authedUser)
+    {
+      return <Redirect
+        to={{
+          pathname: '/',
+          state: { from: '/home' }
+        }}
+      />
 
+      //return <Redirect to='/'/>
+    }
     return (
       <div className='dashboard-content'>
         <div className='tab'>
-          <button className='tablinks active' onClick={(e)=>this.showTab(e, 'Unanswered Questions')}>Unanswered Questions</button>
-          <button className='tablinks' onClick={(e)=>this.showTab(e, 'Answered Questions')}>Answered Questions</button>
+          <button
+            className={activeTab==='Unanswered Questions' ? 'tablinks active' : 'tablinks'}
+            onClick={(e)=>this.showTab(e, 'Unanswered Questions')}>
+              Unanswered Questions
+          </button>
+          <button
+            className={activeTab==='Answered Questions' ? 'tablinks active' : 'tablinks'}
+            onClick={(e)=>this.showTab(e, 'Answered Questions')}>
+              Answered Questions
+          </button>
         </div>
 
-        <QuestionsTab id={'Unanswered Questions'} className={'tabcontent active'} questionIds={unAnsweredQuestionIds}/>
-        <QuestionsTab id={'Answered Questions'} className={'tabcontent'} questionIds={answeredQuestionIds}/>
+        <QuestionsTab
+          className={activeTab==='Unanswered Questions' ? 'tabcontent active' : 'tabcontent'}
+          questionIds={unAnsweredQuestionIds}/>
+        <QuestionsTab
+          className={activeTab==='Answered Questions' ? 'tabcontent active' : 'tabcontent'}
+          questionIds={answeredQuestionIds}/>
       </div>
     )
   }
 }
 
 const mapStateToProps = ({authedUser, users, questions}) => {
-  const answeredQuestionIds = Object.keys(users[authedUser].answers)
-  const unAnsweredQuestionIds = Object.keys(questions).filter(id => !answeredQuestionIds.includes(id))
+  const answeredQuestionIds = authedUser ? Object.keys(users[authedUser].answers) : null
+  const unAnsweredQuestionIds = authedUser ? Object.keys(questions).filter(id => !answeredQuestionIds.includes(id)) : null
   return {
     answeredQuestionIds,
     unAnsweredQuestionIds,
+    authedUser,
   }
 }
 

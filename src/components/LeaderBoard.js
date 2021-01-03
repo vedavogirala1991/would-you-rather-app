@@ -1,11 +1,19 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
 import User from './User'
 
 class LeaderBoard extends Component {
   render () {
-    const {userIds} = this.props
-
+    const {userIds,authedUser} = this.props
+    if(!authedUser) {
+      return <Redirect
+        to={{
+          pathname: '/',
+          state: { from: '/leaderboard' }
+        }}
+      />
+    }
     return (
       <div>
         <h3>Leader Board</h3>
@@ -21,9 +29,10 @@ class LeaderBoard extends Component {
   }
 }
 
-const mapStateToProps = ({ users }) => {
+const mapStateToProps = ({ users,authedUser }) => {
   return {
     userIds : Object.keys(users),
+    authedUser,
   }
 }
 

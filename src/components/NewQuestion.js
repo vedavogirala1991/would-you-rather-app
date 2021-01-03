@@ -12,7 +12,7 @@ class NewQuestion extends Component {
   }
   handleAddNewPoll = (e) => {
     e.preventDefault()
-    
+
     const {dispatch,authedUser} = this.props
     const {optionOne,optionTwo} = this.state
 
@@ -37,8 +37,16 @@ class NewQuestion extends Component {
   }
   render () {
     const {optionOne,optionTwo,toHome}=this.state
+    if(!this.props.authedUser) {
+      return <Redirect
+        to={{
+          pathname: '/',
+          state: { from: '/add' }
+        }}
+      />
+    }
     if(toHome===true){
-      return <Redirect to='/'/>
+      return <Redirect to='/home'/>
     }
     return (
       <div className='new-question'>

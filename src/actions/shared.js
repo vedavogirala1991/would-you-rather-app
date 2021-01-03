@@ -13,13 +13,14 @@ import {
 import {setAuthedUser} from './authedUser'
 import {showLoading,hideLoading} from 'react-redux-loading'
 
-//TODO Need to set auth user based on logon
+//Initial auth user based on logon
 const AUTHED_ID = ''
+
 
 //Handles initial Data for App
 export const handleInitialData = () => {
   return (dispatch) => {
-     dispatch(showLoading())
+    dispatch(showLoading())
     return getInitialData()
       .then(({users,questions}) => {
         dispatch(recieveQuestions(questions))

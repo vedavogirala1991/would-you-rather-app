@@ -1,16 +1,39 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
 .avatar {
   height: 50px;
   border-radius: 25px;
-  margin: 10px;
+  margin-left: 30px;
+  margin-bottom: 20px;
 }
 
-.nav ul {
+.nav-avatar {
+  height: 35px;
+  border-radius: 25px;
+  margin-left: 10px;
+  margin-bottom: -10px;
+}
+
+.nav {
+  border-bottom: 1px solid #CCC;
+  margin-top: 40px;
+}
+
+.nav-links {
   text-decoration: none;
   display: inline-block;
-}
-
-.nav li:first-child {
-  padding-left: 0;
 }
 
 .btn {
@@ -83,15 +106,6 @@ li {
   box-sizing: border-box;
 }
 
-
-
-.avatar {
-  height: 50px;
-  border-radius: 25px;
-  margin-left: 30px;
-  margin-bottom: 20px;
-}
-
 .question-table {
   border: 1px solid #ccc;
 }
@@ -122,6 +136,8 @@ li {
 
 .dashboard-content {
   width: 65%;
+  display: contents;
+  border: 1px solid #CCC;
 }
 
 /* Style the tab */
@@ -169,6 +185,10 @@ li {
   border-top: none;
 }
 
+.leaderboard {
+  display: inline-block;;
+}
+
 .user-leaderboard {
   border: 1px solid #ccc;
   width: 350px;
@@ -202,5 +222,12 @@ li {
 
 .user-nav {
   text-align: right;
-  margin-top: -50px;
+  margin-top: -60px;
+}
+
+.signin-error {
+  margin-top: -37px;
+  margin-left: 360px;
+  overflow: visible;
+  color: red;
 }

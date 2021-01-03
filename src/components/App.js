@@ -32,7 +32,7 @@ class App extends Component {
                   <Route path='/' exact component={Login}/>
                   <Route path='/home' exact component={Dashboard}/>
                   <Route path='/question/:id' exact component={QuestionPage}/>
-                  <Route path='/new' exact component={NewQuestion}/>
+                  <Route path='/add' exact component={NewQuestion}/>
                   <Route path='/leaderboard' exact component={LeaderBoard}/>
                 </div>
             }
@@ -44,8 +44,9 @@ class App extends Component {
 }
 
 const mapStateToProps = ({ users,authedUser }) => {
+  const loading = Object.keys(users).length === 0 ? true : false
   return {
-    loading: users === null,
+    loading,
     authedUser,
   }
 }

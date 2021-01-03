@@ -4,11 +4,11 @@ class Results extends Component {
   render() {
     const {answer,optionOne,optionTwo} = this.props
 
-    const totalVotes = optionOne.votes.length + optionTwo.votes.length
+    const totalVotes = (optionOne && optionTwo) ? optionOne.votes.length + optionTwo.votes.length : 0
 
-    const optionOneVotes = optionOne.votes.length*100/totalVotes
+    const optionOneVotes = totalVotes!==0 ? optionOne.votes.length*100/totalVotes : 0
 
-    const optionTwoVotes = optionTwo.votes.length*100/totalVotes
+    const optionTwoVotes = totalVotes!==0 ? optionTwo.votes.length*100/totalVotes : 0
 
     return (
       <div>

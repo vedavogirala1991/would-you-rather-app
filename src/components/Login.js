@@ -1,30 +1,40 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
+
 import {handleSetAuthUser} from '../actions/authedUser'
 
 class Login extends Component {
   componentDidMount = () => {
-    console.log('inside componentDidMount')
     this.props.dispatch(handleSetAuthUser(''))
   }
+
   state = {
-    userId : ''
+    userId : '',
   }
   handleUserLogin = (e) => {
     e.preventDefault()
     //Dispatch the set user action
     this.props.dispatch(handleSetAuthUser(this.state.userId))
-    this.props.history.push(`/home`)
+    if(this.props.history.location.state)
+    {
+      const from = this.props.history.location.state.from
+      this.props.history.push(from)
+    }
+    else {
+      this.props.history.push(`/home`)
+    }
+
   }
   handleSelect = (e) => {
     const userId = e.target.value
     this.setState(()=>({
       userId,
     }))
-    console.log(userId)
   }
   render () {
     const {userIds,users} = this.props
+    const from = this.props.history.location.state
+    const displayError = from!=null && this.state.userId===''
 
     return (
       <div>
@@ -33,14 +43,18 @@ class Login extends Component {
           <p>Please sign in to continue</p>
           <p>Sign in</p>
           <p>
-            <select value={this.state.userId} onChange={this.handleSelect}>
-              <option value='' disabled defaultValue hidden>Select User</option>
-              {userIds.map((id) => {
-                return <option key={id} value={id}>{users[id].name}</option>
-              })}
+            <select
+              style={{border : displayError === true ? '1px solid red' : '1px solid #CCC'}}
+              value={this.state.userId}
+              onChange={this.handleSelect}>
+                <option value='' disabled defaultValue hidden>Select User</option>
+                {userIds.map((id) => {
+                  return <option key={id} value={id}>{users[id].name}</option>
+                })}
             </select>
           </p>
-          <button type='submit' className='btn'>Sign in</button>
+          <span className='signin-error' style={{display : displayError === true ? 'block' : 'none'}}>Please select the user and sign in</span>
+          <button type='submit' className='btn' disabled= {this.state.userId===''}>Sign in</button>
         </form>
       </div>
     )
