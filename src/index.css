@@ -66,7 +66,26 @@ li {
   list-style-type: none;
   padding: 10px;
   text-decoration: none;
+  text-align: center;
+  display: inline;
 }
+
+.user-leaderboard ul {
+  padding-left: 0;
+}
+
+.user-leaderboard li {
+  list-style-type: none;
+  padding: 10px;
+  text-decoration: none;
+  text-align: center;
+  display: inline;
+  font-size: initial;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+
 
 .avatar {
   height: 50px;
@@ -150,4 +169,35 @@ li {
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
+}
+
+.user-leaderboard {
+  border: 1px solid #ccc;
+  width: 350px;
+  text-align: center;
+  display: flex;
+  height: 120px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.user-avatar {
+  text-align: left;
+  width: 90px;
+  padding-top: 20px;
+  border-right: 1px solid #ccc;
+}
+
+.user-details {
+  width: 200px;
+  margin-left: 20px;
+  text-align: left;
+  border-right: 1px solid #ccc;
+}
+
+.user-score {
+  margin-right: 10px;
+  width: 75px;
+  padding-top: 20px;
+  margin-left: 10px
 }
