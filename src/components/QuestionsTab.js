@@ -7,7 +7,7 @@ class QuestionsTab extends Component {
     const {questionIds,className} = this.props
     return (
       <div className={className}>
-        <ul>
+        <ul className='question'>
             {questionIds &&
               questionIds.map((id) =>(
               <li key={id}>
