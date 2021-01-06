@@ -95,7 +95,11 @@ ul {
   padding-left: 0;
 }
 
-.user-leaderboard li {
+.leaderboard-container {
+  margin-left: 200px;
+}
+
+.leaderboard li {
   list-style-type: none;
   padding: 10px;
   text-decoration: none;
@@ -186,7 +190,7 @@ ul {
 }
 
 .leaderboard {
-  display: inline-block;;
+  display: inline-block;
 }
 
 .user-leaderboard {
@@ -194,9 +198,13 @@ ul {
   width: 350px;
   text-align: center;
   display: flex;
-  height: 120px;
+  height: 100px;
   padding-bottom: 20px;
   padding-top: 20px;
+  background: transparent;
+  border-radius: 6px;
+  transition: box-shadow .2s ease-in-out;
+  z-index: 2;
 }
 
 .user-avatar {
@@ -229,7 +237,7 @@ ul {
 .nav-bar {
   margin-top: -50px;
   height: 110px;
-  background-color: black;
+  background-color: #1f2932;
 }
 
 .user-nav li {

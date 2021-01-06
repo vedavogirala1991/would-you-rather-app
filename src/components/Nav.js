@@ -37,8 +37,6 @@ class Nav extends Component {
                     src={avatar}
                     alt={`Avatar of ${username}`}
                     className='nav-avatar'/>
-                </li>
-                <li>
                   <NavLink to='/' exact activeClassName='active'>
                     Logout
                   </NavLink>
