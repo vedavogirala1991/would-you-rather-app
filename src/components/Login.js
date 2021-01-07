@@ -37,7 +37,7 @@ class Login extends Component {
     const displayError = from!=null && this.state.userId===''
 
     return (
-      <div>
+      <div className='user-login'>
         <h3>Welcome to would you rather App</h3>
         <form onSubmit={this.handleUserLogin}>
           <p>Please sign in to continue</p>

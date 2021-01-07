@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import {NavLink} from 'react-router-dom'
 import {connect} from 'react-redux'
+import wyr from '../images/would-you-rather.jpg'
 
 class Nav extends Component {
   render () {
@@ -9,6 +10,9 @@ class Nav extends Component {
       <div className='nav-bar'>
         <nav className='side-nav'>
           <ul>
+            <li className='image-wrapper'>
+              <img className='wyr' src={wyr} alt='WYR App'/>
+            </li>
             <li>
               <NavLink to='/home' exact activeClassName='active'>
                 Home
@@ -24,20 +28,20 @@ class Nav extends Component {
                 Leader Board
               </NavLink>
             </li>
-            <li><a href='#about'>About</a></li>
           </ul>
         </nav>
+        <h2 className='logo-title'>Would You Rather ...?</h2>
         <nav className='nav'>
           {this.props.username &&
             (<div className='user-nav'>
               <ul>
-                <li>
+                <li className='user-actions'>
                   <span className='username'>Hello, {username}</span>
                   <img
                     src={avatar}
                     alt={`Avatar of ${username}`}
                     className='nav-avatar'/>
-                  <NavLink to='/' exact activeClassName='active'>
+                  <NavLink className='user-logout' to='/' exact activeClassName='active'>
                     Logout
                   </NavLink>
                 </li>

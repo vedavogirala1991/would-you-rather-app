@@ -25,7 +25,7 @@ class User extends Component {
         </div>
         <div className='user-score'>
           <p>Score</p>
-          <p>{scoreCount}</p>
+          <p className='score-count'>{scoreCount}</p>
         </div>
       </div>
     )

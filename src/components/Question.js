@@ -19,31 +19,28 @@ class Question extends Component {
     const { name, avatar, optionOne ,id} = question
 
     return (
-      <table className='question-table' align='center'>
-        <thead className='author-name'>
-          <tr>
-            <td colSpan={2}>
-              <span>{name} asks:</span>
-            </td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td width='40%' align='right'>
-              <img
-                src={avatar}
-                alt={`Avatar of ${name}`}
-                className='avatar'
-              />
-            </td>
-            <td className='question-peek'>
-              <span>Would you rather</span>
-              <p>..{optionOne.text.length>15 ? optionOne.text.substring(0,15) : optionOne.text}..</p>
-              <button onClick={(e)=>this.viewPoll(e,id)} className='btn'>View Poll</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div className='question-details'>
+        <div className='author-name'>
+          <span>{name} asks:</span>
+        </div>
+        <div className='question-avatar'>
+          <img
+            src={avatar}
+            alt={`Avatar of ${name}`}
+          />
+        </div>
+        <div className='question-peek'>
+          <span>Would you rather</span>
+          <p>..{optionOne.text.length>15 ? optionOne.text.substring(0,15) : optionOne.text}..</p>
+        </div>
+        <div className='question-viewpoll'>
+          <button
+            className='view-poll-btn'
+            onClick={(e)=>this.viewPoll(e,id)}>
+            View Poll
+          </button>
+        </div>
+      </div>
     )
   }
 }

@@ -50,11 +50,15 @@ class NewQuestion extends Component {
     }
     return (
       <div className='new-question'>
-        <h3>Create New Question</h3>
-        <form onSubmit={this.handleAddNewPoll}>
+        <div className='new-ques-header'>
+          <h3>Create New Question</h3>
+        </div>
+        <form className='new-ques-form' onSubmit={this.handleAddNewPoll}>
           <div className='question-contents'>
-            <span>Complete the question:</span>
-            <h4>Would you rather...</h4>
+            <div className='complete-ques'>
+              <span>Complete the question:</span>
+            </div>
+            <h4 style={{color: `#017a9b`}}>Would you rather...</h4>
             <p>
               <input
                 type='text'
@@ -70,7 +74,7 @@ class NewQuestion extends Component {
                 placeholder='Enter Option Two Text here'/>
             </p>
             <button
-              className='btn'
+              className='add-ques-btn'
               type='submit'
               disabled={optionOne===''||optionTwo===''}>
               Submit
