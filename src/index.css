@@ -605,3 +605,37 @@ ul {
   background-image: url('images/doodle_bg2.jpg');
   height: 750px;
 }
+
+.question-page {
+  text-align: center;
+  margin-left: 200px;
+  padding: 40px;
+  display: flex;
+}
+
+.question-page-details {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+  width: 420px;
+  border-radius: 6px;
+  height: 300px;
+}
+
+.ques-page-author {
+  text-align: left;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: block;
+  background-color: #cce4eb;
+  color: #017a9b;
+  border-radius: 6px 6px 0 0;
+}
+
+.ques-page-peek {
+  margin-top: -100px;
+  padding-left: 20px;
+  float: right;
+  color: #434d56;
+}

@@ -34,44 +34,36 @@ class QuestionPage extends Component {
     const answer = answeredOption ? answeredOption : this.state.answer
 
     return (
-      <form onSubmit={this.handleSaveAnswer}>
-        <table className='question-table' align='center'>
-          <thead className='author-name'>
-            <tr>
-              <td colSpan={2}>
-                {this.state.hasAnswered ===true
-                  ? <span>Asked by {name}</span>
-                  : <span>{name} asks:</span>
-                }
-              </td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td width='40%' align='right'>
-                <img
-                  src={avatar}
-                  alt={`Avatar of ${name}`}
-                  className='avatar'
-                />
-              </td>
-              <td className='question-peek'>
-                {this.state.hasAnswered === true
-                  ? <Results
-                      answer={answer}
-                      optionOne={optionOne}
-                      optionTwo={optionTwo}/>
-                  : <Poll
-                      answer={answer}
-                      handleChange={this.handleChange}
-                      optionOne={optionOne}
-                      optionTwo={optionTwo}/>
-                  }
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </form>
+      <div className='question-page'>
+        <form className='question-page-details' onSubmit={this.handleSaveAnswer}>
+          <div className='ques-page-author'>
+            {this.state.hasAnswered ===true
+              ? <span>Asked by {name}</span>
+              : <span>{name} asks:</span>
+            }
+          </div>
+          <div className='question-avatar'>
+            <img
+              src={avatar}
+              alt={`Avatar of ${name}`}
+              className='avatar'
+            />
+          </div>
+          <div className='ques-page-peek'>
+            {this.state.hasAnswered === true
+              ? <Results
+                  answer={answer}
+                  optionOne={optionOne}
+                  optionTwo={optionTwo}/>
+              : <Poll
+                  answer={answer}
+                  handleChange={this.handleChange}
+                  optionOne={optionOne}
+                  optionTwo={optionTwo}/>
+              }
+          </div>
+        </form>
+      </div>
     )
   }
 }
