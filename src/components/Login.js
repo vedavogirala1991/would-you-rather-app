@@ -38,10 +38,14 @@ class Login extends Component {
 
     return (
       <div className='user-login'>
+        <div className='login-header'>
         <h3>Welcome to would you rather App</h3>
-        <form onSubmit={this.handleUserLogin}>
-          <p>Please sign in to continue</p>
-          <p>Sign in</p>
+        </div>
+        <form className='login-form' onSubmit={this.handleUserLogin}>
+          <div className='signin-span'>
+            <span>Please sign in to continue</span>
+          </div>
+          <h4 className='signin-h4'>Sign in</h4>
           <p>
             <select
               style={{border : displayError === true ? '1px solid red' : '1px solid #CCC'}}
@@ -54,7 +58,7 @@ class Login extends Component {
             </select>
           </p>
           <span className='signin-error' style={{display : displayError === true ? 'block' : 'none'}}>Please select the user and sign in</span>
-          <button type='submit' className='btn' disabled= {this.state.userId===''}>Sign in</button>
+          <button type='submit' className='signin-btn' disabled= {this.state.userId===''}>Sign in</button>
         </form>
       </div>
     )

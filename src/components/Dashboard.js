@@ -17,9 +17,7 @@ class Dashboard extends Component {
   render() {
     const {answeredQuestionIds,unAnsweredQuestionIds,authedUser} = this.props
     const {activeTab} = this.state
-    console.log('Active Tab : ',activeTab)
-    console.log('Answered Questions',answeredQuestionIds)
-    console.log('Unanswered Questions',unAnsweredQuestionIds)
+
     if(!authedUser)
     {
       return <Redirect

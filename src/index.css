@@ -12,6 +12,15 @@ code {
     monospace;
 }
 
+#root {
+  height: 1000px;
+  background: linear-gradient(to bottom right, #e5f1f5, #ffffff);
+  /* border-right: 180px solid transparent;
+  border-image-source: url('images/doodle_bg2.jpg');
+  border-image-repeat: repeat;
+  border-image-slice: 10%; */
+}
+
 .avatar {
   height: 50px;
   border-radius: 25px;
@@ -61,18 +70,25 @@ code {
 
 .container {
   max-width: 1000px;
+  max-width: 1000px;
+  height: 100%;
+  display: contents;
+}
+
+.page-container {
+  margin-top: -20px;
+  display: inline;
+  text-align: center;
+}
+
+/* .bgimage-container {
   height: 1000px;
   margin: 0 auto;
   padding: 10px;
   background-image: url('images/bgimage.jpg');
   background-repeat: repeat-y;
   background-size: cover;
-}
-
-.center {
-  display: inline;
-  text-align: center;
-}
+} */
 
 .author-name {
   text-align: left;
@@ -80,7 +96,7 @@ code {
   padding-top: 10px;
   padding-bottom: 10px;
   display: block;
-  background-color: #e5f1f5;
+  background-color: #cce4eb;
   color: #017a9b;
 }
 
@@ -134,6 +150,19 @@ ul {
   color: ghostwhite;
 }
 
+.login-header {
+  display: block;
+  background-color: #003d4d;
+  color: ghostwhite;
+}
+
+.login-header h3 {
+  font-size: 1.17em;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  padding: 15px;
+}
+
 .new-ques-header h3 {
   font-size: 1.17em;
   margin-block-start: 0em;
@@ -145,6 +174,40 @@ ul {
   margin: 15px auto;
   padding: 3px;
   border: 1px solid rgba(0,0,0,.29);
+}
+
+.login-form select {
+  margin: 15px auto;
+  padding: 3px;
+  border: 1px solid rgba(0,0,0,.29);
+}
+
+.signin-btn {
+  height: 2rem;
+  border: transparent;
+  border-radius: .25rem;
+  background: #3394af;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Open Sans,sans-serif;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 10px auto;
+  font-size: 16px;
+  width: 250px;
+  position: relative;
+}
+
+.signin-btn:disabled {
+  cursor: not-allowed;
+  background: #80bccd;
+  color: lightgrey;
+}
+
+.signin-btn:hover:enabled {
+  background: #017a9b;
 }
 
 .add-ques-btn {
@@ -165,6 +228,16 @@ ul {
   position: relative;
 }
 
+.add-ques-btn:disabled {
+  cursor: not-allowed;
+  background: #80bccd;
+  color: lightgrey;
+}
+
+.add-ques-btn:hover:enabled {
+  background: #017a9b;
+}
+
 .question-details {
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -177,6 +250,18 @@ ul {
 .new-question {
   margin-left: 200px;
   text-align: center;
+}
+
+.login-form {
+  text-align: center;
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #f7fafc;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+  width: 420px;
+  border-radius: 6px;
+  height: 300px;
 }
 
 .new-ques-form {
@@ -199,6 +284,22 @@ ul {
   border-radius: 6px;
   height: 400px;
 } */
+
+.signin-span {
+  height: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #899093;
+  font-size: larger;
+  font-weight: 400;
+  color: ghostwhite;
+  border-radius: 6px 6px 0 0;
+}
+
+.signin-h4 {
+  color: #017a9b;
+  padding: 10px;
+}
 
 .complete-ques {
   height: 20px;
@@ -225,6 +326,10 @@ ul {
   font-weight: 600;
   text-align: center;
   vertical-align: middle;
+}
+
+.view-poll-btn:hover {
+  background: #017a9b;
 }
 
 .question-content {
@@ -256,6 +361,7 @@ ul {
 
 /* Style the tab */
 .tab {
+  display: flex;
   overflow: hidden;
   margin-top: 23px;
   margin-left: 200px;
@@ -291,6 +397,7 @@ ul {
 }
 
 .tablinks {
+  margin-left: 4px;
   border-bottom:4px solid #ccc!important;
 }
 
@@ -300,7 +407,7 @@ ul {
 
 /* Style the tab content */
 .tabcontent {
-  margin-left: 200px;
+  /* margin-left: 200px; */
   display: none;
   padding: 6px 12px;
   text-align: -webkit-center;
@@ -315,7 +422,7 @@ ul {
 }
 
 .leaderboard {
-  display: inline-block;
+  display: contents;
 }
 
 .user-leaderboard {
@@ -415,8 +522,8 @@ ul {
 }
 
 .signin-error {
-  margin-top: -37px;
-  margin-left: 360px;
+  margin-top: -60px;
+  margin-left: 280px;
   overflow: visible;
   color: red;
 }
@@ -471,7 +578,7 @@ ul {
 }
 
 .user-login {
-  margin-left: 200px;
+  margin-left: 120px;
   height: 100%
 }
 
@@ -481,4 +588,20 @@ ul {
   color: white;
   margin-left: 220px;
   width: 350px;
+}
+
+.image-container {
+  background-image: url('images/doodle_bg2.jpg');
+  height: 200px;
+  background-position: top;
+  background-repeat: repeat;
+}
+
+.nav-image-container {
+  background-position: top;
+  float: right;
+  right: 150px;
+  width: 120px;
+  background-image: url('images/doodle_bg2.jpg');
+  height: 750px;
 }

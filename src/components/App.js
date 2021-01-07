@@ -14,7 +14,6 @@ import QuestionPage from './QuestionPage'
 import NewQuestion from './NewQuestion'
 import LeaderBoard from './LeaderBoard'
 import Nav from './Nav'
-import bgimage from '../images/bgimage.jpg'
 
 class App extends Component {
   componentDidMount () {
@@ -27,14 +26,16 @@ class App extends Component {
           <LoadingBar/>
           <div className='container'>
             <Nav/>
+            <div className='nav-image-container'/>
             {this.props.loading === true
               ? null
-              : <div className='center'>
+              : <div className='page-container'>
                   <Route path='/' exact component={Login}/>
                   <Route path='/home' exact component={Dashboard}/>
                   <Route path='/question/:id' exact component={QuestionPage}/>
                   <Route path='/add' exact component={NewQuestion}/>
                   <Route path='/leaderboard' exact component={LeaderBoard}/>
+                  <div className='image-container'/>
                 </div>
             }
           </div>
