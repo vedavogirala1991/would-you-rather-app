@@ -61,8 +61,12 @@ code {
 
 .container {
   max-width: 1000px;
+  height: 1000px;
   margin: 0 auto;
   padding: 10px;
+  background-image: url('images/bgimage.jpg');
+  background-repeat: repeat-y;
+  background-size: cover;
 }
 
 .center {
@@ -468,6 +472,7 @@ ul {
 
 .user-login {
   margin-left: 200px;
+  height: 100%
 }
 
 .logo-title {
