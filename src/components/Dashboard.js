@@ -45,9 +45,11 @@ class Dashboard extends Component {
         </div>
 
         <QuestionsTab
+          id='Unanswered Questions'
           className={activeTab==='Unanswered Questions' ? 'tabcontent active' : 'tabcontent'}
           questionIds={unAnsweredQuestionIds}/>
         <QuestionsTab
+          id='Answered Questions'
           className={activeTab==='Answered Questions' ? 'tabcontent active' : 'tabcontent'}
           questionIds={answeredQuestionIds}/>
       </div>

@@ -14,6 +14,7 @@ class LeaderBoard extends Component {
         }}
       />
     }
+
     return (
       <div className='leaderboard-container'>
         <h3>Leader Board</h3>
@@ -31,7 +32,12 @@ class LeaderBoard extends Component {
 
 const mapStateToProps = ({ users,authedUser }) => {
   return {
-    userIds : Object.keys(users),
+    userIds : Object.keys(users)
+      .sort((a,b) => {
+        const user1score = users[a].questions.length + Object.keys(users[a].answers).length
+        const user2score = users[b].questions.length + Object.keys(users[b].answers).length
+        return user2score - user1score
+      }),
     authedUser,
   }
 }

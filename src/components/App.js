@@ -1,5 +1,5 @@
 import React, {Component,Fragment} from 'react'
-import {BrowserRouter as Router,Route} from 'react-router-dom'
+import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
 import {connect} from 'react-redux'
 //React Redux loading bar
 import LoadingBar from 'react-redux-loading'
@@ -30,11 +30,14 @@ class App extends Component {
             {this.props.loading === true
               ? null
               : <div className='page-container'>
-                  <Route path='/' exact component={Login}/>
-                  <Route path='/home' exact component={Dashboard}/>
-                  <Route path='/question/:id' exact component={QuestionPage}/>
-                  <Route path='/add' exact component={NewQuestion}/>
-                  <Route path='/leaderboard' exact component={LeaderBoard}/>
+                  <Switch>
+                    <Route path='/' exact component={Login}/>
+                    <Route path='/home' exact component={Dashboard}/>
+                    <Route path='/question/:id' exact component={QuestionPage}/>
+                    <Route path='/add' exact component={NewQuestion}/>
+                    <Route path='/leaderboard' exact component={LeaderBoard}/>
+                    <Route component={Login} />
+                  </Switch>
                   <div className='image-container'/>
                 </div>
             }

@@ -31,8 +31,6 @@ class QuestionPage extends Component {
   }
 
   render () {
-
-    console.log('Props : ',this.props)
     if(!this.props.authedUser)
     {
       return <Redirect
@@ -43,7 +41,7 @@ class QuestionPage extends Component {
       />
     }
 
-    const { id,name, avatar, optionOne, optionTwo, answeredOption} = this.props.question
+    const { name, avatar, optionOne, optionTwo, answeredOption} = this.props.question
     const answer = answeredOption ? answeredOption : this.state.answer
 
     return (
