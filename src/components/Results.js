@@ -14,18 +14,20 @@ class Results extends Component {
       <div className='question-results'>
         <span>Results</span>
         <div
-          className='question-option'
-          id='optionOne'
-          style= {{border : answer==='optionOne' ? '1px solid #ccc' : 'none'}}>
+          className={answer==='optionOne' ? 'question-option option-selected' : 'question-option'}
+          id='optionOne'>
           <p>Would you rather {optionOne.text}</p>
-          <progress value={optionOneVotes} max={100}>{optionOneVotes}</progress>
+          <div className='vote-progress'>
+            <div className='vote-ratio' style={{width : optionOneVotes+'%'}}></div>
+          </div>
         </div>
         <div
-          className='question-option'
-          id='optionTwo'
-          style= {{border : answer==='optionTwo' ? '1px solid #ccc' : 'none'}}>
+          className={answer==='optionTwo' ? 'question-option option-selected' : 'question-option'}
+          id='optionTwo'>
           <p>Would you rather {optionTwo.text}</p>
-          <progress value={optionTwoVotes} max={100}>{optionTwoVotes}</progress>
+          <div className='vote-progress'>
+            <div className='vote-ratio' style={{width : optionTwoVotes+'%'}}></div>
+          </div>
         </div>
       </div>)
   }
