@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
 import {formatQuestion} from '../utils/helpers'
 import {handleSaveAnswer} from '../actions/shared'
 import Poll from './Poll'
@@ -8,7 +9,7 @@ import Results from './Results'
 class QuestionPage extends Component {
   state = {
     answer : '',
-    hasAnswered : this.props.question.hasAnswered,
+    hasAnswered : this.props.question ? this.props.question.hasAnswered : false,
   }
   handleChange = (e) => {
     const answer = e.target.value
@@ -30,7 +31,19 @@ class QuestionPage extends Component {
   }
 
   render () {
-    const { name, avatar, optionOne, optionTwo, answeredOption} = this.props.question
+
+    console.log('Props : ',this.props)
+    if(!this.props.authedUser)
+    {
+      return <Redirect
+        to={{
+          pathname: '/',
+          state: { from: '/home' }
+        }}
+      />
+    }
+
+    const { id,name, avatar, optionOne, optionTwo, answeredOption} = this.props.question
     const answer = answeredOption ? answeredOption : this.state.answer
 
     return (
@@ -42,7 +55,7 @@ class QuestionPage extends Component {
               : <span>{name} asks:</span>
             }
           </div>
-          <div className='question-avatar'>
+          <div className='ques-page-avatar'>
             <img
               src={avatar}
               alt={`Avatar of ${name}`}
@@ -73,7 +86,7 @@ const mapStateToProps = ({authedUser,questions,users},props) => {
   const question = questions[id]
   return {
     authedUser,
-    question : formatQuestion(question,users,authedUser),
+    question : authedUser ? formatQuestion(question,users,authedUser) : null,
     id,
   }
 }

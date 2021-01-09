@@ -11,15 +11,17 @@ class Results extends Component {
     const optionTwoVotes = totalVotes!==0 ? optionTwo.votes.length*100/totalVotes : 0
 
     return (
-      <div>
+      <div className='question-results'>
         <span>Results</span>
         <div
+          className='question-option'
           id='optionOne'
           style= {{border : answer==='optionOne' ? '1px solid #ccc' : 'none'}}>
           <p>Would you rather {optionOne.text}</p>
           <progress value={optionOneVotes} max={100}>{optionOneVotes}</progress>
         </div>
         <div
+          className='question-option'
           id='optionTwo'
           style= {{border : answer==='optionTwo' ? '1px solid #ccc' : 'none'}}>
           <p>Would you rather {optionTwo.text}</p>
