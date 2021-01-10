@@ -1,10 +1,11 @@
-Would You Rather App Project
+# Would You Rather App Project
 
 This repo is a react-redux assignment as part of the React Nano Degree Program, this project demonstrates a web app that lets a user play the “Would You Rather?” game. Users will be able to answer questions, see which questions they haven’t answered, see how other people have voted, post questions, and see the ranking of users on the leaderboard.
 
-Project Setup
+# Project Setup
 
 clone the Project - https://github.com/vedavogirala1991/would-you-rather-app.git
+
 install the dependencies - npm install
 
 # Getting Started with Create React App
