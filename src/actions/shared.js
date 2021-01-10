@@ -10,11 +10,11 @@ import {
   recieveUsers,
   saveUserAnswer,
   saveUserQuestion} from './users'
-import {setAuthedUser} from './authedUser'
+//import {setAuthedUser} from './authedUser'
 import {showLoading,hideLoading} from 'react-redux-loading'
 
 //Initial auth user based on logon
-const AUTHED_ID = ''
+//const AUTHED_ID = ''
 
 
 //Handles initial Data for App
@@ -25,7 +25,7 @@ export const handleInitialData = () => {
       .then(({users,questions}) => {
         dispatch(recieveQuestions(questions))
         dispatch(recieveUsers(users))
-        dispatch(setAuthedUser(AUTHED_ID))
+        //dispatch(setAuthedUser(AUTHED_ID))
         dispatch(hideLoading())
     })
   }
