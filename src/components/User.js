@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
+import winner from '../images/winner.png'
 
 class User extends Component {
   render () {
@@ -9,9 +10,18 @@ class User extends Component {
     const ansCount = Object.keys(answers).length
 
     const scoreCount = quesCount + ansCount
-
+    const rank = this.props.rank
+    console.log('Rank : ',rank)
+    const rankClass = 'user-leaderboard '+ (rank===1 ? 'user-rank1' : (rank===2 ? 'user-rank2' : (rank===3? 'user-rank3' : 'user-rank' )))
+    console.log('rankclass :: ',rankClass)
     return (
-      <div className='user-leaderboard'>
+      <div>
+      {rank===1 &&
+        <div>
+          <img className='leaderboard-ranking' src={winner} alt='Winner'/>
+        </div>
+      }
+      <div className={rankClass}>
         <div className='user-avatar'>
           <img
             src={avatarURL}
@@ -25,16 +35,20 @@ class User extends Component {
         </div>
         <div className='user-score'>
           <p>Score</p>
-          <p className='score-count'>{scoreCount}</p>
+          <div className='score-count'>
+            <p>{scoreCount}</p>
+          </div>
         </div>
+      </div>
       </div>
     )
   }
 }
 
-const mapStateToProps = ({users},{id}) => {
+const mapStateToProps = ({users},{id,rank}) => {
   return {
     user : users[id],
+    rank,
   }
 }
 

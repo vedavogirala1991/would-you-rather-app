@@ -249,7 +249,7 @@ ul {
 }
 
 .new-question {
-  margin-left: 200px;
+  margin-left: 120px;
   text-align: center;
 }
 
@@ -424,7 +424,8 @@ ul {
 }
 
 .leaderboard {
-  display: contents;
+  display: block;
+  margin-top: 40px!important;
 }
 
 .user-leaderboard {
@@ -458,7 +459,7 @@ ul {
 }
 
 .user-details h4 {
-  color: #657482;
+  color: #3c454e;
   margin-block-start: 0;
   margin-block-end: 0;
 }
@@ -467,15 +468,19 @@ ul {
   margin-block-start: 10px;
   margin-block-end: 10px;
   font-size: 15px;
-  color: #58646d;
+  color: #3c454e;
 }
 
 .user-score {
   margin-right: 10px;
   width: 75px;
   margin-left: 10px;
-  color: #58646d;
+  color: #3c454e;
   font-weight: 500;
+}
+
+.user-score p {
+  font-weight: bold;
 }
 
 .user-nav {
@@ -817,4 +822,70 @@ ul {
   height: 80px;
   padding-top: 50px;
   color: #3394af;
+}
+
+.leaderboard-header {
+  height: 50px;
+  padding-bottom: 10px;
+  background-color: #003d4d;
+  color: white;
+  display: block;
+}
+
+.leaderboard-header h3 {
+  display: inline-block;
+  font-size: 1.17em;
+  vertical-align: top;
+  margin-top: 10px;
+  padding-top: 20px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.leaderboard-ranking {
+  height: 60px;
+  display: inline-block;
+}
+
+.user-rank {
+  background-color: #f2f2f2;
+  border: 3px solid #e7d9cf;
+}
+
+.user-rank1 {
+  background-color: #caeaf8;
+  border: 3px solid #d9c773;
+}
+
+.user-rank2 {
+  background-color: #D5F2ED;
+  border: 3px solid #cacaca;
+}
+
+.user-rank3 {
+  background-color: #fefcee;
+  border: 3px solid #c5ad88;
+}
+
+.score-count {
+  background-color: #19505e;
+  border: 3px solid #b2c4c9;
+  border-radius: 100%;
+  height: 30px;
+  width: 35px;
+  margin-top: -10px;
+  margin-left: 10px;
+}
+
+.score-count p {
+  display: block;
+  padding-top: 3px;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  color: white;
 }

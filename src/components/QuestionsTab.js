@@ -14,7 +14,7 @@ class QuestionsTab extends Component {
       }
       console.log('emptyText : ',emptyText)
       return (
-        <div className='empty-questions'>
+        <div className='empty-question'>
           <span>{emptyText}</span>
         </div>
       )

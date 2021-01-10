@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
 import User from './User'
+import ranking from '../images/leaderboard-ranking.png'
 
 class LeaderBoard extends Component {
   render () {
@@ -14,14 +15,18 @@ class LeaderBoard extends Component {
         }}
       />
     }
-
+    let rank = 0
     return (
       <div className='leaderboard-container'>
-        <h3>Leader Board</h3>
+        <div className='leaderboard-header'>
+          <img className='leaderboard-ranking' src={ranking} alt='Ranking'/>
+          <h3>Leader Board</h3>
+        </div>
         <ul className='leaderboard'>
           {userIds.map((id) => {
+            rank++
             return (<li key={id}>
-             <User id={id}/>
+             <User id={id} rank={rank}/>
             </li>)
           })}
         </ul>
