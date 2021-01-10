@@ -11,9 +11,9 @@ class User extends Component {
 
     const scoreCount = quesCount + ansCount
     const rank = this.props.rank
-    console.log('Rank : ',rank)
+
     const rankClass = 'user-leaderboard '+ (rank===1 ? 'user-rank1' : (rank===2 ? 'user-rank2' : (rank===3? 'user-rank3' : 'user-rank' )))
-    console.log('rankclass :: ',rankClass)
+
     return (
       <div>
       {rank===1 &&
