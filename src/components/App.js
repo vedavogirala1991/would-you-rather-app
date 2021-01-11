@@ -13,6 +13,7 @@ import Login from './Login'
 import QuestionPage from './QuestionPage'
 import NewQuestion from './NewQuestion'
 import LeaderBoard from './LeaderBoard'
+import PageNotFound from './PageNotFound'
 import Nav from './Nav'
 
 class App extends Component {
@@ -36,6 +37,7 @@ class App extends Component {
                     <Route path='/question/:id' exact component={QuestionPage}/>
                     <Route path='/add' exact component={NewQuestion}/>
                     <Route path='/leaderboard' exact component={LeaderBoard}/>
+                    <Route path='/404' component = {PageNotFound}/>
                     <Route component={Login} />
                   </Switch>
                   <div className='image-container'/>

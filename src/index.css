@@ -13,7 +13,7 @@ code {
 }
 
 #root {
-  height: 1000px;
+  height: 1200px;
   background: linear-gradient(to bottom right, #e5f1f5, #ffffff);
   /* border-right: 180px solid transparent;
   border-image-source: url('images/doodle_bg2.jpg');
@@ -129,7 +129,8 @@ ul {
 }
 
 .leaderboard-container {
-  margin-left: 120px;
+  margin-left: 200px;
+  height: 600px;
 }
 
 .leaderboard li {
@@ -888,4 +889,13 @@ ul {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   color: white;
+}
+
+.page-not-found {
+  margin-top: -100px;
+  width: 100%;
+  height: 800px;
+  background-image: url('images/404-error-page-not-found.png');
+  background-repeat: no-repeat;
+  background-position: center;
 }

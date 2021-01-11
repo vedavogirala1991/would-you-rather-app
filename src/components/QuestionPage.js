@@ -36,9 +36,12 @@ class QuestionPage extends Component {
       return <Redirect
         to={{
           pathname: '/',
-          state: { from: '/home' }
+          state: { from: this.props.location.pathname }
         }}
       />
+    }
+    if(!this.props.isValidQuestion) {
+      return <Redirect to='/404' />
     }
 
     const { name, avatar, optionOne, optionTwo, answeredOption} = this.props.question
@@ -81,10 +84,12 @@ class QuestionPage extends Component {
 
 const mapStateToProps = ({authedUser,questions,users},props) => {
   const {id} = props.match.params
-  const question = questions[id]
+  const isValidQuestion = questions[id] ? true : false
+  const question = isValidQuestion ? questions[id] : null
   return {
     authedUser,
-    question : authedUser ? formatQuestion(question,users,authedUser) : null,
+    isValidQuestion,
+    question : authedUser && isValidQuestion ? formatQuestion(question,users,authedUser) : null,
     id,
   }
 }
